@@ -1,0 +1,9 @@
+[
+    {
+        "file": "image2.png",
+        "latex": "f(\\stackrel{\\leftarrow}{x})=\\frac{a_{e}}{2}+\\sum_{n=1}^{\\infty}a_{n}\\cos n x+\\sum_{n=1}^{\\infty}b_{n}\\sin n x",
+        "subject": "Mathematics",
+        "topic": "Fourier Analysis",
+        "formula_name": "Fourier Series"
+    }
+]
