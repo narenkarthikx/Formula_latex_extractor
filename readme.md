@@ -1,36 +1,4 @@
-# LaTeX OCR Formula Mapper
-
-An intelligent tool that extracts mathematical formulas from images using OCR and automatically classifies them using AI.
-
-## 📋 Overview
-
-This project combines OCR technology with Google's Gemini AI to:
-1. Extract LaTeX code from mathematical formula images
-2. Automatically identify the subject, topic, and formula name
-3. Generate structured JSON output with complete formula metadata
-
-## 🚀 Features
-
-- **LaTeX OCR**: Extracts LaTeX expressions from images using the `pix2tex` library
-- **AI-Powered Classification**: Uses Google Gemini AI to categorize formulas by subject, topic, and name
-- **Structured Output**: Generates clean JSON files with all formula information
-- **Automatic Cleanup**: Handles and cleans AI responses to ensure valid JSON
-
-## 📁 Project Structure
-
-```
-latex_ocr_project/
-├── .env                    # API keys and environment variables
-├── formula_mapper.py       # Main script
-└── images/
-    ├── image1.png         # Input formula images
-    ├── image2.png
-    └── final_output.json  # Generated output
-```
-
-## 🛠️ Installation
-
-1. **Clone or download this reposi# LaTeX OCR Formula Mapper with Gemini Pro
+# LaTeX OCR Formula Mapper with Gemini Pro
 
 An intelligent tool that extracts mathematical formulas from images using LaTeX-OCR and automatically classifies them using Google's Gemini Pro Vision API.
 
@@ -151,32 +119,6 @@ pip install -r requirements.txt
 GOOGLE_API_KEY=your_actual_api_key_here
 ```
 
-3. **Important**: Add `.env` to your `.gitignore`:
-
-```gitignore
-# Environment variables
-.env
-
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-
-# Virtual environment
-venv/
-env/
-ENV/
-
-# IDE
-.vscode/
-.idea/
-
-# OS
-.DS_Store
-Thumbs.db
-```
 
 ## 💻 Usage
 
@@ -200,7 +142,7 @@ Thumbs.db
 
 Modify `formula_mapper.py` to loop through images:
 
-````python
+```python
 import os
 
 image_folder = "images/"
@@ -210,38 +152,17 @@ for filename in os.listdir(image_folder):
     if filename.endswith((".png", ".jpg", ".jpeg")):
         image_path = os.path.join(image_folder, filename)
         # Process image...
-        results.append(result)tory**
-
-2. **Install required dependencies**:
-```bash
-pip install pix2tex
-pip install google-generativeai
-pip install python-dotenv
-pip install Pillow
+        results.append(result)
 ```
 
-3. **Set up your API key**:
-   - Get a Google Gemini API key from [Google AI Studio](https://makersuite.google.com/app/apikey)
-   - Add it to the [.env](.env) file:
-     ```
-     GEMINI_API_KEY=your_api_key_here
-     ```
+## 🔧 How It Works
 
-## 💻 Usage
-
-1. **Place your formula images** in the `images/` directory
-
-2. **Update the image path** in [formula_mapper.py](formula_mapper.py):
-   ```python
-   image_path = "path/to/your/image.png"
-   ```
-
-3. **Run the script**:
-   ```bash
-   python formula_mapper.py
-   ```
-
-4. **Check the output** in `images/final_output.json`
+1. **OCR Extraction**: The `LatexOCR` model processes the input image and extracts LaTeX code
+2. **AI Classification**: Google Gemini AI analyzes the LaTeX expression and identifies:
+   - Subject (e.g., Mathematics, Physics, Chemistry)
+   - Topic (e.g., Fourier Analysis, Mechanics, Algebra)
+   - Formula Name (e.g., Fourier Series, Newton's Second Law)
+3. **JSON Generation**: Results are saved to `final_output.json`
 
 ## 📊 Output Format
 
@@ -261,12 +182,12 @@ The script generates a JSON file with the following structure:
 
 ## 🔧 How It Works
 
-1. **OCR Extraction**: The [`LatexOCR`](formula_mapper.py) model processes the input image and extracts LaTeX code
+1. **OCR Extraction**: The `LatexOCR` model processes the input image and extracts LaTeX code
 2. **AI Classification**: Google Gemini AI analyzes the LaTeX expression and identifies:
    - Subject (e.g., Mathematics, Physics, Chemistry)
    - Topic (e.g., Fourier Analysis, Mechanics, Algebra)
    - Formula Name (e.g., Fourier Series, Newton's Second Law)
-3. **JSON Generation**: Results are saved to [`final_output.json`](images/final_output.json)
+3. **JSON Generation**: Results are saved to `final_output.json`
 
 ## 📝 Example
 
@@ -280,15 +201,12 @@ The script generates a JSON file with the following structure:
 
 ## ⚙️ Configuration
 
-You can modify the following in [formula_mapper.py](formula_mapper.py):
+You can modify the following in `formula_mapper.py`:
 
 - **Image path**: Update the `image_path` variable
 - **AI model**: Change the Gemini model version in the `GenerativeModel` call
 - **Prompt**: Customize the classification prompt for different categorization needs
 
-## 🔐 Security Note
-
-⚠️ **Important**: Never commit your `.env` file with actual API keys to version control. The [.env](.env) file should be added to `.gitignore`.
 
 ## 📦 Dependencies
 
