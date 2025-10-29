@@ -155,15 +155,6 @@ for filename in os.listdir(image_folder):
         results.append(result)
 ```
 
-## 🔧 How It Works
-
-1. **OCR Extraction**: The `LatexOCR` model processes the input image and extracts LaTeX code
-2. **AI Classification**: Google Gemini AI analyzes the LaTeX expression and identifies:
-   - Subject (e.g., Mathematics, Physics, Chemistry)
-   - Topic (e.g., Fourier Analysis, Mechanics, Algebra)
-   - Formula Name (e.g., Fourier Series, Newton's Second Law)
-3. **JSON Generation**: Results are saved to `final_output.json`
-
 ## 📊 Output Format
 
 The script generates a JSON file with the following structure:
